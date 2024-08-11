@@ -11,7 +11,9 @@ function LobbyScreen() {
 
   const handleSubmitForm = useCallback((e) => {
     e.preventDefault();
-    socket.emit("room:join", { email, room })
+    if (email && room) {
+      socket.emit("room:join", { email, room });
+    }
     [email, room, socket]
   })
   const handleJoinRoom = useCallback((data) => {

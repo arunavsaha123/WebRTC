@@ -7,9 +7,9 @@ const cors = require('cors');
 const app = express();
 
 const corsOptions = {
-    origin: '*', // Replace '*' with your frontend's URL in production
+    origin: 'https://web-rtc-pearl.vercel.app', // Replace '*' with your frontend's URL in production
     methods: ['GET', 'POST'], // Allow only GET and POST methods
-    allowedHeaders: ['Content-Type'], // Allow only specific headers
+    allowedHeaders: ['Content-Type', 'Authorization'],
 };
 
 app.use(cors(corsOptions));
