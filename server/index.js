@@ -1,18 +1,25 @@
 const express = require('express');
 const http = require('http');
 const { Server } = require('socket.io');
+const cors = require('cors');
 
 // Initialize Express
 const app = express();
+
+const corsOptions = {
+    origin: '*', // Replace '*' with your frontend's URL in production
+    methods: ['GET', 'POST'], // Allow only GET and POST methods
+    allowedHeaders: ['Content-Type'], // Allow only specific headers
+};
+
+app.use(cors(corsOptions));
 
 // Create an HTTP server
 const server = http.createServer(app);
 
 // Initialize Socket.io with the HTTP server
 const io = new Server(server, {
-    cors: {
-        origin: '*', // You can configure the allowed origin here
-    },
+    cors: corsOptions,
 });
 
 app.get('/', (req, res) => {
