@@ -11,7 +11,7 @@ const server = http.createServer(app);
 // Initialize Socket.io with the HTTP server
 const io = new Server(server, {
     cors: {
-        origin: 'https://web-rtc-pearl.vercel.app', // You can configure the allowed origin here
+        origin: '*', // You can configure the allowed origin here
     },
 });
 
