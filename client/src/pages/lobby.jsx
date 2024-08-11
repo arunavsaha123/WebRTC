@@ -24,9 +24,9 @@ function LobbyScreen() {
 
   useEffect(() => {
     socket.on("join:room", handleJoinRoom)
-    // return () => {
-    //   socket.off("join:room", handleJoinRoom)
-    // }
+    return () => {
+      socket.off("join:room", handleJoinRoom)
+    }
   }, [socket, handleJoinRoom])
 
   return (

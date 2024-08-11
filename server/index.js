@@ -19,7 +19,10 @@ const server = http.createServer(app);
 
 // Initialize Socket.io with the HTTP server
 const io = new Server(server, {
-    cors: corsOptions,
+    cors: {
+        origin: 'https://web-rtc-pearl.vercel.app',
+        methods: ['GET', 'POST'],
+    }
 });
 
 app.get('/', (req, res) => {
