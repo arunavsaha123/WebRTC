@@ -16,9 +16,9 @@ const RoomPage = () => {
     }, [])
     useEffect(() => {
         socket.on('user:joined', handleUserJoined);
-        return () => {
-            socket.off('user:joined', handleUserJoined);
-        }
+        // return () => {
+        //     socket.off('user:joined', handleUserJoined);
+        // }
     }, [socket, handleUserJoined])
 
 
